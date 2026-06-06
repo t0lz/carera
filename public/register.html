@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CARERA — регистрация</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <a href="/index.html">CARERA</a>
+      </div>
+      <div class="nav">
+        <a href="/index.html" data-nav="home">Главная</a>
+        <a href="/ads.html" data-nav="ads">Автомобили</a>
+        <a href="/import-order.html" data-nav="import">Заказ из-за границы</a>
+        <a href="/import-orders.html" data-nav="orders">Заявки</a>
+        <a href="/admin.html" data-nav="admin" id="adminNavLink" style="display:none;">Админка</a>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-circle" id="headerLoginBtn">Вход</button>
+        <button class="btn-circle" id="headerProfileBtn" style="display:none;"></button>
+        <button class="btn-circle" id="headerLogoutBtn" style="display:none;">Выйти</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper form-page">
+    <div class="form-card">
+      <div class="form-title">Регистрация</div>
+      <div class="form-subtitle">Создайте учётную запись пользователя CARERA</div>
+      <form id="registerForm">
+        <div class="form-group">
+          <label class="label">Email</label>
+          <input id="regEmail" class="input" type="email" />
+        </div>
+        <div class="form-group">
+          <label class="label">Пароль</label>
+          <input id="regPassword" class="input" type="password" />
+        </div>
+        <div class="form-group">
+          <label class="label">Имя</label>
+          <input id="regFirstname" class="input" />
+        </div>
+        <div class="form-group">
+          <label class="label">Фамилия</label>
+          <input id="regLastname" class="input" />
+        </div>
+        <div class="form-group">
+          <label class="label">Телефон</label>
+          <input id="regPhone" class="input" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </div>
+        <div class="small">
+          Уже есть аккаунт? <a href="/login.html">Войти</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/js/app.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+</html>
+
+
+

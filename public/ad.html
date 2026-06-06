@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CARERA — объявление</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <a href="/index.html">CARERA</a>
+      </div>
+      <div class="nav">
+        <a href="/index.html" data-nav="home">Главная</a>
+        <a href="/ads.html" data-nav="ads">Автомобили</a>
+        <a href="/import-order.html" data-nav="import">Заказ из-за границы</a>
+        <a href="/import-orders.html" data-nav="orders">Заявки</a>
+        <a href="/admin.html" data-nav="admin" id="adminNavLink" style="display:none;">Админка</a>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-circle" id="headerLoginBtn">Вход</button>
+        <button class="btn-circle" id="headerProfileBtn" style="display:none;"></button>
+        <button class="btn-circle" id="headerLogoutBtn" style="display:none;">Выйти</button>
+      </div>
+    </div>
+  </div>
+  <div class="page-root">
+    <div class="wrapper form-page">
+      <div id="adContainer" class="card">
+        Загрузка объявления...
+      </div>
+    </div>
+  </div>
+  <script src="/js/app.js"></script>
+  <script src="/js/ad.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+</html>
+
+
+
+

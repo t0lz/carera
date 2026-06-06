@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CARERA — заказ из-за границы</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <a href="/index.html">CARERA</a>
+      </div>
+      <div class="nav">
+        <a href="/index.html" data-nav="home">Главная</a>
+        <a href="/ads.html" data-nav="ads">Автомобили</a>
+        <a href="/import-order.html" data-nav="import">Заказ из-за границы</a>
+        <a href="/import-orders.html" data-nav="orders">Заявки</a>
+        <a href="/admin.html" data-nav="admin" id="adminNavLink" style="display:none;">Админка</a>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-circle" id="headerLoginBtn">Вход</button>
+        <button class="btn-circle" id="headerProfileBtn" style="display:none;"></button>
+        <button class="btn-circle" id="headerLogoutBtn" style="display:none;">Выйти</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper import-page">
+    <div class="page-header">
+      <h2 class="page-title">Заказ автомобиля из-за границы</h2>
+      <p class="page-subtitle">Укажите параметры автомобиля, чтобы получить предварительный расчет таможенных платежей.</p>
+    </div>
+
+    <div class="import-layout">
+      <form class="form-card import-form" id="importOrderForm">
+        <div class="form-title">Параметры заказа</div>
+        <div class="form-subtitle">Расчет включает сбор, пошлину, НДС, акциз и утилизационный сбор.</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label" for="customerName">Имя клиента</label>
+            <input id="customerName" class="input" placeholder="Иван" />
+          </div>
+          <div class="form-group">
+            <label class="label" for="customerPhone">Телефон</label>
+            <input id="customerPhone" class="input" placeholder="+7..." />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label" for="makeInput">Марка</label>
+            <input id="makeInput" class="input" placeholder="Toyota" />
+          </div>
+          <div class="form-group">
+            <label class="label" for="modelInput">Модель</label>
+            <input id="modelInput" class="input" placeholder="Camry" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label" for="priceRub">Стоимость авто, ₽</label>
+            <input id="priceRub" class="input" type="number" min="0" value="1800000" required />
+          </div>
+          <div class="form-group">
+            <label class="label" for="deliveryRub">Доставка, ₽</label>
+            <input id="deliveryRub" class="input" type="number" min="0" value="180000" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label" for="engineVolume">Объем двигателя, л</label>
+            <input id="engineVolume" class="input" type="number" min="0" step="0.1" value="2.0" required />
+          </div>
+          <div class="form-group">
+            <label class="label" for="powerHp">Мощность, л.с.</label>
+            <input id="powerHp" class="input" type="number" min="0" value="150" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label" for="ageYears">Возраст авто, лет</label>
+            <input id="ageYears" class="input" type="number" min="0" value="4" required />
+          </div>
+          <div class="form-group">
+            <label class="label" for="eurRate">Курс евро, ₽</label>
+            <input id="eurRate" class="input" type="number" min="1" step="0.01" value="100" required />
+            <div class="small" id="rateHint">Курс будет загружен автоматически.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="label" for="customerType">Тип клиента</label>
+          <select id="customerType" class="select">
+            <option value="individual">Физическое лицо</option>
+            <option value="company">Юридическое лицо</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Рассчитать</button>
+          <button type="button" class="btn btn-light" id="createOrderBtn">Сформировать заявку</button>
+        </div>
+        <div class="auth-required-note" id="importAuthNotice" style="display:none;">
+          Чтобы сформировать заявку на импорт, войдите в аккаунт.
+          <button class="btn btn-primary btn-sm" type="button" id="importLoginBtn">Войти</button>
+        </div>
+      </form>
+
+      <aside class="import-result" id="importResult">
+        <div class="result-empty">Заполните форму и нажмите «Рассчитать».</div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/import-order.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CARERA — админка</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <a href="/index.html">CARERA</a>
+      </div>
+
+      <div class="nav">
+        <a href="/index.html" data-nav="home">Главная</a>
+        <a href="/ads.html" data-nav="ads">Автомобили</a>
+        <a href="/import-order.html" data-nav="import">Заказ из-за границы</a>
+        <a href="/import-orders.html" data-nav="orders">Заявки</a>
+        <a href="/admin.html" data-nav="admin" id="adminNavLink" style="display:none;">Админка</a>
+      </div>
+
+      <div class="topbar-right">
+        <button class="btn-circle" id="headerLoginBtn">Вход</button>
+        <button class="btn-circle" id="headerProfileBtn" style="display:none;"></button>
+        <button class="btn-circle" id="headerLogoutBtn" style="display:none;">Выйти</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-root">
+    <div class="wrapper">
+      <div class="admin-page-head">
+        <div>
+          <h1 class="page-title" id="adminPageTitle">Панель администратора</h1>
+          <p class="admin-page-subtitle" id="adminPageSubtitle">
+            Управление пользователями, объявлениями и справочниками
+          </p>
+        </div>
+
+        <div class="admin-tabs">
+          <button class="admin-tab active" type="button" data-admin-tab="ads">
+            Объявления
+          </button>
+          <button class="admin-tab" type="button" data-admin-tab="users">
+            Пользователи
+          </button>
+          <button class="admin-tab" type="button" data-admin-tab="refs">
+            Справочники
+          </button>
+        </div>
+      </div>
+
+      <div id="adminMessage" class="admin-message" style="display:none;"></div>
+
+      <section class="admin-panel active" data-admin-panel="ads">
+        <div class="card">
+          <div class="admin-panel-toolbar">
+            <h2>Модерация объявлений</h2>
+            <input
+              id="adminAdsSearch"
+              class="input admin-search-input"
+              type="search"
+              placeholder="Поиск по объявлениям"
+            />
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Объявление</th>
+                <th>Цена</th>
+                <th>Продавец</th>
+                <th>Статус</th>
+                <th>Причина отказа</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="adminAdsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="users">
+        <div class="card">
+          <div class="admin-panel-toolbar">
+            <h2>Пользователи</h2>
+            <input
+              id="adminUsersSearch"
+              class="input admin-search-input"
+              type="search"
+              placeholder="Поиск по пользователям"
+            />
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Имя</th>
+                <th>Роль</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="adminUsersBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-admin-panel="refs">
+        <div class="card refs-card">
+          <div class="admin-panel-toolbar">
+            <div>
+              <h2>Справочники</h2>
+              <p class="admin-page-subtitle">
+                Управление марками, моделями и типами кузова
+              </p>
+            </div>
+
+            <input
+              id="adminRefsSearch"
+              class="input admin-search-input"
+              type="search"
+              placeholder="Поиск по справочникам"
+            />
+          </div>
+
+          <div class="refs-layout">
+            <div class="refs-sidebar">
+              <button class="refs-tab active" type="button" data-ref-tab="makes">
+                Марки
+              </button>
+
+              <button class="refs-tab" type="button" data-ref-tab="models">
+                Модели
+              </button>
+
+              <button class="refs-tab" type="button" data-ref-tab="bodyTypes">
+                Типы кузова
+              </button>
+            </div>
+
+            <div class="refs-content">
+              <div class="refs-panel active" data-ref-panel="makes">
+                <div class="refs-panel-head">
+                  <div>
+                    <h3>Марки</h3>
+                    <p>Добавление и удаление марок автомобилей</p>
+                  </div>
+                </div>
+
+                <form id="makeForm" class="inline-form refs-form">
+                  <input id="makeName" class="input" placeholder="Новая марка" />
+                  <button class="btn btn-primary btn-sm" type="submit">
+                    Добавить
+                  </button>
+                </form>
+
+                <div id="makesAdminList" class="refs-list"></div>
+              </div>
+
+              <div class="refs-panel" data-ref-panel="models">
+                <div class="refs-panel-head">
+                  <div>
+                    <h3>Модели</h3>
+                    <p>Модели автомобилей с привязкой к марке</p>
+                  </div>
+                </div>
+
+                <form id="modelForm" class="inline-form refs-form refs-form-model">
+                  <select id="modelMake" class="select"></select>
+                  <input id="modelName" class="input" placeholder="Новая модель" />
+                  <button class="btn btn-primary btn-sm" type="submit">
+                    Добавить
+                  </button>
+                </form>
+
+                <div id="modelsAdminList" class="refs-list"></div>
+              </div>
+
+              <div class="refs-panel" data-ref-panel="bodyTypes">
+                <div class="refs-panel-head">
+                  <div>
+                    <h3>Типы кузова</h3>
+                    <p>Справочник типов кузова автомобилей</p>
+                  </div>
+                </div>
+
+                <form id="bodyTypeForm" class="inline-form refs-form">
+                  <input id="bodyTypeName" class="input" placeholder="Новый тип кузова" />
+                  <button class="btn btn-primary btn-sm" type="submit">
+                    Добавить
+                  </button>
+                </form>
+
+                <div id="bodyTypesAdminList" class="refs-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+</html>

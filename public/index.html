@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CARERA — главная</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <a href="/index.html">CARERA</a>
+      </div>
+
+      <div class="nav">
+        <a href="/index.html" data-nav="home">Главная</a>
+        <a href="/ads.html" data-nav="ads">Автомобили</a>
+        <a href="/import-order.html" data-nav="import">Заказ из-за границы</a>
+        <a href="/import-orders.html" data-nav="orders">Заявки</a>
+        <a href="/admin.html" data-nav="admin" id="adminNavLink" style="display:none;">Админка</a>
+      </div>
+
+      <div class="topbar-right">
+        <button class="btn-circle" id="headerLoginBtn">Вход</button>
+        <button class="btn-circle" id="headerProfileBtn" style="display:none;"></button>
+        <button class="btn-circle" id="headerLogoutBtn" style="display:none;">Выйти</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-root">
+    <section class="hero">
+      <div class="wrapper hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Всё для покупки и продажи автомобилей
+          </h1>
+
+          <p class="hero-subtitle">
+            Покупайте авто у продавцов, размещайте свои объявления или оформляйте заказ автомобиля из-за границы
+          </p>
+
+          <div class="hero-actions">
+            <button
+              class="btn btn-primary hero-btn"
+              type="button"
+              onclick="location.href='/ads.html'"
+            >
+              Перейти к объявлениям
+            </button>
+
+            <button
+              class="btn btn-light"
+              id="heroSellBtn"
+              type="button"
+              onclick="location.href='/new-ad.html'"
+            >
+              Подать объявление
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/js/header.js"></script>
+</body>
+</html>
